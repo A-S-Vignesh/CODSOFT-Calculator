@@ -1,56 +1,114 @@
-body{
+body {
 	display: flex;
-	text-align: center;
 	justify-content: center;
+	align-items: center;
+	text-align: center;
 	background-image: url("images/calculator.png");
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-
+	height: 100vh;
+	margin: 0;
 }
 
-
-.grid{
-	display: grid;
-	gap: 30px;
-	grid-template-columns: 50px 50px 50px 50px;
-	grid-template-rows: auto 50px 50px 50px 50px 50px;
+.calculator-box {
+	background-color: #006d77;
+	color: #ffffff;
+	border: 2px solid black;
+	border-radius: 20px;
 	padding: 20px;
-	justify-content: space-evenly;
-
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	width: 90%;
+	max-width: 400px;
+	margin-top: 100px;
 }
 
+.grid {
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto repeat(5, 50px);
+	justify-content: center;
+	padding: 20px;
+}
 
 .display {
+	background-color: #002f36;
+	color: #ffffff;
 	text-align: right;
 	font-size: 20px;
 	margin: 20px 0;
-	grid-column-start: 1;
-	grid-column-end: 5;
+	padding: 10px;
+	grid-column: 1 / -1;
 	border: 2px solid black;
 	border-radius: 10px;
 	height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: right;
 }
 
-.calculator-box{
-	/* background-color: #2196f3; */
-	margin-top: 100px;
-	background-color: #3ba3b8;
-	border: 2px solid black;
-	border-radius: 20px;
-	width: 400px;
-}
-
-.numberbtn{
+.numberbtn {
 	border-radius: 10px;
-	/* background-color: #1664c0; */
-	background-color: #1f4f6e;
-	color: white;
+	background-color: #83c5be;
+	color: #004d4d;
 	font-size: 16px;
-
-
-	/* width: 50px;
-	height: 50px;
-	margin: 20px; */
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
 }
 
+.numberbtn:hover {
+	background-color: #edf6f9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.calculator-box {
+		width: 98%;
+		margin-top: 50px;
+	}
+
+	.grid {
+		gap: 15px;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto repeat(5, 45px);
+		padding: 15px;
+	}
+
+	.display {
+		height: 45px;
+		font-size: 18px;
+	}
+
+	.numberbtn {
+		font-size: 14px;
+	}
+}
+
+@media (max-width: 480px) {
+	.calculator-box {
+		width: 100%;
+		margin-top: 20px;
+		padding: 5px;
+	}
+
+	.grid {
+		gap: 15px;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: auto repeat(5, 40px);
+		padding: 10px;
+	}
+
+	.display {
+		height: 40px;
+		font-size: 16px;
+	}
+
+	.numberbtn {
+		font-size: 12px;
+	}
+}
